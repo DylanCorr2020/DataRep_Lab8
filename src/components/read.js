@@ -8,7 +8,7 @@ class Read extends Component
     componentDidMount(){
         axios.get('http://localhost:4000/api/movies')
         .then((response)=>{
-            this.setState({mymovies: response.data.mymovies})
+            this.setState({movie: response.data})
         })
         .catch((error)=>{
             console.log(error);
@@ -16,14 +16,14 @@ class Read extends Component
     }
 
     state = {
-        mymovies: []            
+        movie: []            
     };
 
     render(){
         return(
             <div>
                 <h1>This is my Read component!</h1>
-                <Movies films={this.state.mymovies}></Movies>
+                <Movies films={this.state.movie}></Movies>
             </div>
         );
     }
